@@ -1,0 +1,42 @@
+server:
+  port: 23333
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      username: file_server_sys
+      password: jAZfcR7dFpSw8fra
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://120.79.208.205:3306/file_server_sys?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
+      # 初始化 最小 最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置多个英文逗号分隔
+      filters: stat,wall
+  servlet:
+    multipart:
+      max-file-size: 16MB
+      max-request-size: 16MB
+logging:
+  level:
+    root: info
+#    cn.chentyit.fileserversystem.dao: trace
+  file:
+    name: /springboot/log/springboot.log
+mybatis-plus:
+  mapper-locations:
+    - classpath*:/mapper/**Mapper.xml

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
+    <meta charset="utf-8"/>
+    <title>Hyper - Responsive Bootstrap 4 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
+    <meta content="Coderthemes" name="author"/>
+
+    <!-- App css -->
+    <link th:href="@{/css/icons.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/app.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- DropZone -->
+    <link th:href="@{/dropzone-5.7.0/basic.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/dropzone-5.7.0/dropzone.css}" rel="stylesheet" type="text/css"/>
+    <script th:src="@{/dropzone-5.7.0/dropzone.js}"></script>
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <!-- Start Content-->
+
+        <div class="content-page">
+            <div class="content">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title m-t-0">Dropzone File Upload</h4>
+                                <p class="text-muted font-13 m-b-30">
+                                    DropzoneJS is an open source library that provides drag’n’drop file uploads with
+                                    image previews.
+                                </p>
+
+                                <form action="#" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="multipartFile" type="file"/>
+                                    </div>
+
+                                    <div class="dz-message needsclick">
+                                        <i class="h1 text-muted dripicons-cloud-upload"></i>
+                                        <h3>Drop files here or click to upload.</h3>
+                                        <span class="text-muted font-13">(This is just a demo dropzone. Selected
+                                                        files are
+                                                        <strong>not</strong> actually uploaded.)</span>
+                                    </div>
+                                </form>
+
+                                <!-- Preview -->
+                                <div class="dropzone-previews mt-3" id="file-previews"></div>
+                            </div>
+                            <!-- end card-body -->
+                        </div>
+                        <!-- end card-->
+                    </div>
+                    <!-- end col-->
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="table-responsive-sm">
+                                    <table class="table table-bordered table-centered mb-0">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>ViewPath</th>
+                                                <th>Size</th>
+                                                <th>UploadDate</th>
+                                                <th>MD5</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="file : ${files}">
+                                                <td>
+                                                    <img th:src="${file.fileViewPath}"
+                                                         th:alt="${file.fileName}"
+                                                         class="img-thumbnail" style="height: 60px; width: 100px">
+                                                </td>
+                                                <td>
+                                                    <a th:href="@{/files/} + ${file.fileId}" th:text="${file.fileName}"></a>
+                                                </td>
+                                                <td th:text="${file.fileViewPath}"></td>
+                                                <td th:text="${file.fileSize} + 'Bytes'" ></td>
+                                                <td th:text="${file.fileUploadDate}" ></td>
+                                                <td th:text="${file.fileMd5}" ></td>
+                                                <td class="table-action">
+                                                    <a th:href="@{/files/delete/} + ${file.fileId}" class="action-icon">
+                                                        <i class="mdi mdi-delete"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div> <!-- end table-responsive-->
+
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                </div>
+                <!-- end row-->
+
+            </div> <!-- content -->
+        </div> <!-- content-page -->
+
+    </div> <!-- end wrapper-->
+
+</div>
+<!-- END Container -->
+
+<!-- App js -->
+<script th:src="@{/js/app.min.js}"></script>
+
+<!-- File upload js -->
+<script th:src="@{/js/ui/component.fileupload.js}"></script>
+
+</body>
+
+</html>
