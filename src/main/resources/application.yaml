@@ -7,7 +7,7 @@ spring:
       username: file_server_sys
       password: jAZfcR7dFpSw8fra
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://120.79.208.205:3306/file_server_sys?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
+      url: jdbc:mysql://hostnme:3306/file_server_sys?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false&nullCatalogMeansCurrent=true
       # 初始化 最小 最大
       initial-size: 5
       min-idle: 5
