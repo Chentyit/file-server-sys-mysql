@@ -3,7 +3,7 @@ new Dropzone(".dropzone", {
     method: "post",
     paramName: "file",
     maxFiles: 1,            //一次性上传的文件数量上限
-    maxFilesize: 16,         //文件大小，单位：MB
+    maxFilesize: 4,         //文件大小，单位：MB
     acceptedFiles: ".jfif,.jpg,.bmp,.png",
     addRemoveLinks: true,
     parallelUploads: 1,     //一次上传的文件数量
