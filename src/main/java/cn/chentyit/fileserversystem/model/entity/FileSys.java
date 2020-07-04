@@ -1,6 +1,5 @@
 package cn.chentyit.fileserversystem.model.entity;
 
-import com.alibaba.druid.mock.MockBlob;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,12 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.ibatis.javassist.bytecode.ByteArray;
 
 import java.io.Serializable;
-import java.sql.Blob;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 /**
  * @Author Chentyit
